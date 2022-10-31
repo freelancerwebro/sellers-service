@@ -2,12 +2,14 @@
 
 namespace App\Providers;
 
-use App\Domains\Internal\Contracts\Handlers\GetDomainsHandlerInterface;
-use App\Domains\Internal\Handlers\GetDomainsHandler;
+use App\Repositories\ContactsRepository;
+use App\Repositories\SalesRepository;
+use App\Repositories\SellerRepository;
 use App\Services\Contracts\LoadFileServiceInterface;
 use App\Services\Contracts\SellerServiceInterface;
 use App\Services\LoadFileService;
 use App\Services\SellerService;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -31,8 +33,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(SellerServiceInterface::class, static function () {
-            return new SellerService();
+        $this->app->bind(SellerServiceInterface::class, static function (Application $app) {
+            return new SellerService(
+                $app->get(SalesRepository::class),
+                $app->get(SellerRepository::class),
+                $app->get(ContactsRepository::class)
+            );
         });
 
         $this->app->bind(LoadFileServiceInterface::class, static function () {

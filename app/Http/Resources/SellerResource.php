@@ -17,11 +17,13 @@ class SellerResource extends JsonResource
     public function toArray($request): array
     {
         return [
-            'id' => $this->seller->id,
-            'firstname' => $this->seller->firstname,
-            'lastname' => $this->seller->lastname,
-            'date_joined' => $this->seller->date_joined,
-            'country' => $this->seller->country,
+            'data' => [
+                'id' => $this->seller->id,
+                'firstname' => $this->seller->firstname,
+                'lastname' => $this->seller->lastname,
+                'date_joined' => $this->seller->date_joined,
+                'country' => $this->seller->country,
+            ],
         ];
     }
 }

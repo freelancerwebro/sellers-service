@@ -4,11 +4,27 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Carbon\CarbonInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
+/**
+ * App\Models\Contact
+ *
+ * @property int $id
+ * @property int $seller_id
+ * @property string $full_name
+ * @property string $type
+ * @property string $region
+ * @property string $date
+ * @property int $product_type_offered_id
+ * @property string $product_type_offered
+ * @property CarbonInterface $created_at
+ * @property CarbonInterface $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereSellerId($value)
+ */
 class Contact extends Model
 {
     use HasFactory;
