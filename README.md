@@ -26,6 +26,9 @@ php artisan test
 
 ## Preview
 
+#### Load CSV file
+![app preview](https://raw.githubusercontent.com/freelancerwebro/sellers-service/main/resources/images/load.png)
+
 #### Get seller by ID
 ![app preview](https://raw.githubusercontent.com/freelancerwebro/sellers-service/main/resources/images/seller.png)
 
