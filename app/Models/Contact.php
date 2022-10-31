@@ -29,6 +29,16 @@ class Contact extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'seller_id',
+        'full_name',
+        'region',
+        'date',
+        'type',
+        'product_type_offered_id',
+        'product_type_offered',
+    ];
+
     /**
      * The table associated with the model.
      *

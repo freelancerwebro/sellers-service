@@ -41,8 +41,12 @@ class AppServiceProvider extends ServiceProvider
             );
         });
 
-        $this->app->bind(LoadFileServiceInterface::class, static function () {
-            return new LoadFileService();
+        $this->app->bind(LoadFileServiceInterface::class, static function (Application $app) {
+            return new LoadFileService(
+                $app->get(SalesRepository::class),
+                $app->get(SellerRepository::class),
+                $app->get(ContactsRepository::class)
+            );
         });
     }
 }

@@ -9,4 +9,5 @@ use App\Models\Seller;
 interface SellerRepositoryInterface
 {
     public function getById(int $id): Seller;
+    public function createFromCSVLine(array $csvLine): Seller;
 }

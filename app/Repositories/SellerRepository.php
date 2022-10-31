@@ -13,4 +13,18 @@ class SellerRepository implements SellerRepositoryInterface
     {
         return Seller::whereId($id)->firstOrFail();
     }
+
+    public function createFromCSVLine(array $csvLine): Seller
+    {
+        $seller = Seller::firstOrNew([
+            'id' => $csvLine['seller_id'],
+        ]);
+        $seller->firstname = $csvLine['seller_firstname'];
+        $seller->lastname = $csvLine['seller_lastname'];
+        $seller->date_joined = $csvLine['date_joined'];
+        $seller->country = $csvLine['country'];
+        $seller->save();
+
+        return $seller;
+    }
 }

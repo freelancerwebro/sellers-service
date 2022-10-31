@@ -12,6 +12,14 @@ class Sale extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'contact_id',
+        'net_amount',
+        'gross_amount',
+        'tax_rate',
+        'product_total_cost',
+    ];
+
     /**
      * The table associated with the model.
      *
