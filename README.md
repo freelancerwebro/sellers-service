@@ -3,8 +3,8 @@
 Laravel REST API for importing sellers CSV files and displaying sellers, contacts and sales.
 
 ## Requirements
-- docker-compose
-- PHP
+- [docker-compose](https://docs.docker.com/compose/install/)
+- [PHP](https://www.php.net/manual/en/install.php)
 
 ## Installation
 Run the following command from the terminal:
