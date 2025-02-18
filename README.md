@@ -3,7 +3,7 @@
 Laravel REST API for importing sellers CSV files and displaying sellers, contacts and sales.
 
 ## Requirements
-- composer
+- docker-compose
 - PHP
 
 ## Installation
