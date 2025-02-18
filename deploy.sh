@@ -1,9 +1,5 @@
 cp .env.example .env
 
-composer require laravel/sail --dev
+php artisan key:generate
 
-php artisan sail:install
-
-./vendor/bin/sail up
-
-php artisan migrate
+docker-compose up -d --build
