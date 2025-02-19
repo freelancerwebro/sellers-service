@@ -11,14 +11,17 @@ class LoadFileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'file' => ['bail', 'required', 'file', 'mimes:csv,txt,xls,xlsx'],
+            'file' => ['bail', 'required', 'file', 'mimes:csv,txt,xls,xlsx', 'max:20000'],
         ];
     }
 
     public function messages(): array
     {
         return [
-            'file' => 'The file must be a file of type CSV.',
+            'file.required' => 'The CSV file is required.',
+            'file.file' => 'The uploaded file must be a valid CSV.',
+            'file.mimes' => 'The file must be a CSV format (.csv or .txt).',
+            'file.max' => 'The file size must not exceed 20MB.',
         ];
     }
 }
