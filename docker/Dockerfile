@@ -35,6 +35,9 @@ ENV PATH="${PATH}:/root/.composer/vendor/bin"
 # Install Laravel dependencies
 RUN composer install
 
+RUN echo "upload_max_filesize=50M" > /usr/local/etc/php/conf.d/uploads.ini
+RUN echo "post_max_size=50M" >> /usr/local/etc/php/conf.d/uploads.ini
+
 # Expose port
 EXPOSE 9000
 
