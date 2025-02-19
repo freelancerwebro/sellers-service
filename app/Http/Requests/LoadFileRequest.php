@@ -30,7 +30,7 @@ class LoadFileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'file' => ['bail', 'required', 'file', 'mimes:csv,txt,xls,xlsx', 'max:20000'],
+            'file' => ['bail', 'required', 'file', 'mimes:csv,txt', 'max:20000'],
         ];
     }
 
