@@ -7,7 +7,8 @@ WORKDIR /var/www
 RUN apt-get update && apt-get install -y \
     zip unzip git curl libpng-dev libjpeg-dev libfreetype6-dev \
     libonig-dev libxml2-dev sqlite3 libsqlite3-dev \
-    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
+    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd \
+    && pecl install redis && docker-php-ext-enable redis
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
