@@ -19,6 +19,11 @@ Run the following command from the terminal:
 - GET `/sellers/{id}/sales`: Provide a list of all sales data accomplished by the seller.
 - GET `/sales/{year}`: Provide an object with two properties: stats (netAmount, grossAmount, taxAmount, profit, % profit) and sales (list of the all sales matching the period).
 
+## Execute background jobs
+```
+php artisan queue:work --tries=3
+```
+
 ## Run tests
 ```
 php artisan test
