@@ -4,67 +4,46 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\Repositories\Contracts\ContactsRepositoryInterface;
-use App\Repositories\Contracts\SalesRepositoryInterface;
-use App\Repositories\Contracts\SellerRepositoryInterface;
+use App\Jobs\ProcessCsvChunk;
 use App\Services\Contracts\LoadFileServiceInterface;
 use Illuminate\Http\JsonResponse;
 use App\Http\Requests\LoadFileRequest;
 use Exception;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class LoadFileService implements LoadFileServiceInterface
 {
-    private const CSV_COLUMNS = 16;
-
-    public function __construct(
-        private readonly SalesRepositoryInterface $salesRepository,
-        private readonly SellerRepositoryInterface $sellerRepository,
-        private readonly ContactsRepositoryInterface $contactsRepository
-    ) {
-    }
+    const BATCH_SIZE = 1000;
 
     /**
      * @throws Exception
      */
     public function loadFile(LoadFileRequest $request): JsonResponse
     {
-        //
         $filePath = $request->file('file')->getRealPath();
         $file = fopen($filePath, 'r');
+        $header = fgetcsv($file);
+        $chunk = [];
 
-        $row = 0;
-        $header = [];
-        while (($rawLine = fgetcsv($file)) !== FALSE) {
-            if (count($rawLine) != self::CSV_COLUMNS) {
-                throw new Exception('Invalid CSV file');
+        Log::info('CSV file is being processed.....');
+
+        while (($row = fgetcsv($file)) !== FALSE) {
+            $chunk[] = $row;
+
+            if (count($chunk) >= self::BATCH_SIZE) {
+                ProcessCsvChunk::dispatch($chunk);
+                $chunk = [];
             }
-
-            if ($row !== 0) {
-                $line = array_combine($header, $rawLine);
-
-                $this->saveCsvLine(array_combine($header, $rawLine));
-            } else {
-                $header = $rawLine;
-            }
-
-            $row++;
         }
+
+        if (!empty($chunk)) {
+            ProcessCsvChunk::dispatch($chunk);
+        }
+
         fclose($file);
 
         return response()->json([
-            'message' => 'CSV file has been processed',
+            'message' => 'The CSV file is valid. It\'s being processed in the background.',
         ]);
-    }
-
-    public function saveCsvLine($csvLine): void
-    {
-        DB::transaction(function () use ($csvLine) {
-            $seller = $this->sellerRepository->createFromCSVLine($csvLine);
-
-            $contact = $this->contactsRepository->createFromCSVLine($csvLine, (int)$seller->id);
-
-            $this->salesRepository->createFromCSVLine($csvLine, $contact->id);
-        });
     }
 }

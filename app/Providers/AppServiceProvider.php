@@ -5,8 +5,10 @@ namespace App\Providers;
 use App\Repositories\ContactsRepository;
 use App\Repositories\SalesRepository;
 use App\Repositories\SellerRepository;
+use App\Services\Contracts\CsvLineSaverServiceInterface;
 use App\Services\Contracts\LoadFileServiceInterface;
 use App\Services\Contracts\SellerServiceInterface;
+use App\Services\CsvLineSaverService;
 use App\Services\LoadFileService;
 use App\Services\SellerService;
 use Illuminate\Contracts\Foundation\Application;
@@ -24,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
         return [
             SellerServiceInterface::class,
             LoadFileServiceInterface::class,
+            CsvLineSaverServiceInterface::class,
         ];
     }
     /**
@@ -42,7 +45,11 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->app->bind(LoadFileServiceInterface::class, static function (Application $app) {
-            return new LoadFileService(
+            return new LoadFileService();
+        });
+
+        $this->app->bind(CsvLineSaverServiceInterface::class, static function (Application $app) {
+            return new CsvLineSaverService(
                 $app->get(SalesRepository::class),
                 $app->get(SellerRepository::class),
                 $app->get(ContactsRepository::class)

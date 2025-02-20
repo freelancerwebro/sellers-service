@@ -19,15 +19,15 @@ class ContactsRepository implements ContactsRepositoryInterface
     {
         $contact = Contact::firstOrNew([
             'seller_id' => $sellerId,
-            'full_name' => $csvLine['contact_customer_fullname'],
-            'date' => $csvLine['contact_date'],
+            'full_name' => $csvLine[8], // contact_customer_fullname
+            'date' => $csvLine[7], // contact_date
         ]);
-        $contact->full_name = $csvLine['contact_customer_fullname'];
-        $contact->region = $csvLine['contact_region'];
-        $contact->date = $csvLine['contact_date'];
-        $contact->type = $csvLine['contact_type'];
-        $contact->product_type_offered_id = $csvLine['contact_product_type_offered_id'];
-        $contact->product_type_offered = $csvLine['contact_product_type_offered'];
+        $contact->full_name = $csvLine[8]; // contact_customer_fullname
+        $contact->region = $csvLine[6]; // contact_region
+        $contact->date = $csvLine[7]; // contact_date
+        $contact->type = $csvLine[9]; // contact_type
+        $contact->product_type_offered_id = $csvLine[10]; // contact_product_type_offered_id
+        $contact->product_type_offered = $csvLine[11]; // contact_product_type_offered
         $contact->save();
 
         return $contact;

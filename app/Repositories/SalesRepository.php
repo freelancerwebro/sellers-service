@@ -45,10 +45,10 @@ class SalesRepository implements SalesRepositoryInterface
         $sale = Sale::firstOrNew([
             'contact_id' => $contactId,
         ]);
-        $sale->net_amount = (float)$csvLine['sale_net_amount'];
-        $sale->gross_amount = (float)$csvLine['sale_gross_amount'];
-        $sale->tax_rate = (float)$csvLine['sale_tax_rate'];
-        $sale->product_total_cost = (float)$csvLine['sale_product_total_cost'];
+        $sale->net_amount = (float)$csvLine[12]; // sale_net_amount
+        $sale->gross_amount = (float)$csvLine[13]; // sale_gross_amount
+        $sale->tax_rate = (float)$csvLine[14]; // sale_tax_rate
+        $sale->product_total_cost = (float)$csvLine[15]; // sale_product_total_cost
         $sale->save();
 
         return $sale;
