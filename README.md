@@ -34,7 +34,7 @@ php artisan test
 #### Load CSV file
 ![app preview](https://raw.githubusercontent.com/freelancerwebro/sellers-service/main/resources/images/load.png)
 
-Sample csv files: [2_records.csv](https://raw.githubusercontent.com/freelancerwebro/sellers-service/main/resources/csv/myFile_2_records.csv), [1000_records.csv](https://raw.githubusercontent.com/freelancerwebro/sellers-service/main/resources/csv/myFile_1000_records.csv), [5000_records.csv](https://raw.githubusercontent.com/freelancerwebro/sellers-service/main/resources/csv/myFile_5000_records.csv)
+Sample csv files: [2_records.csv](https://raw.githubusercontent.com/freelancerwebro/sellers-service/main/resources/csv/myFile_2_records.csv), [1000_records.csv](https://raw.githubusercontent.com/freelancerwebro/sellers-service/main/resources/csv/myFile_1000_records.csv), [5000_records.csv](https://raw.githubusercontent.com/freelancerwebro/sellers-service/main/resources/csv/myFile_5000_records.csv), [10000_records.csv](https://raw.githubusercontent.com/freelancerwebro/sellers-service/main/resources/csv/myFile_10000_records.csv), [50000_records.csv](https://raw.githubusercontent.com/freelancerwebro/sellers-service/main/resources/csv/myFile_50000_records.csv), [100000_records.csv](https://raw.githubusercontent.com/freelancerwebro/sellers-service/main/resources/csv/myFile_100000_records.csv)
 
 #### Get seller by ID
 ![app preview](https://raw.githubusercontent.com/freelancerwebro/sellers-service/main/resources/images/seller.png)
