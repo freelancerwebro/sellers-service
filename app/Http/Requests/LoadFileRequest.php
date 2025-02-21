@@ -57,6 +57,11 @@ class LoadFileRequest extends FormRequest
             $handle = fopen($file->getPathname(), "r");
             $headers = fgetcsv($handle);
 
+            if (!is_array($headers)) {
+                $validator->errors()->add('file', 'The uploaded file is empty.');
+                return;
+            }
+
             if (count($headers) !== count(self::EXPECTED_COLUMNS)) {
                 $validator->errors()->add(
                     'file',
