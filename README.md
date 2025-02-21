@@ -1,6 +1,18 @@
 # Sellers Service
+RESTful API designed to handle custom sales data from a high-value customer operating across multiple EU countries. This module processes CSV files containing sales representatives' contacts and sales records, storing them in a structured database and exposing the data via API.
 
-Laravel REST API for importing sellers CSV files and displaying sellers, contacts and sales.
+- Handles CSV files with hundreds to tens of thousands of records 
+- Automated data processing upon file upload
+- Categorized data: Seller, Contact, and Sale
+- REST API for easy data retrieval
+
+## Tech Stack
+- Laravel 9
+- PHP 8.1
+- MySQL 8
+- Redis
+- Docker
+- PHPUnit
 
 ## Requirements
 - [docker-compose](https://docs.docker.com/compose/install/)
