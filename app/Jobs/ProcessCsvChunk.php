@@ -16,8 +16,7 @@ class ProcessCsvChunk implements ShouldQueue
 
     public function __construct(
         private readonly array $chunk,
-    ) {
-    }
+    ) {}
 
     public function handle(CsvLineSaverServiceInterface $csvLineSaverService)
     {

@@ -29,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
             CsvLineSaverServiceInterface::class,
         ];
     }
+
     /**
      * Register any application services.
      *
@@ -45,7 +46,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->app->bind(LoadFileServiceInterface::class, static function (Application $app) {
-            return new LoadFileService();
+            return new LoadFileService;
         });
 
         $this->app->bind(CsvLineSaverServiceInterface::class, static function (Application $app) {

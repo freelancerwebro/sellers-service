@@ -23,6 +23,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string $product_type_offered
  * @property CarbonInterface $created_at
  * @property CarbonInterface $updated_at
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Contact whereSellerId($value)
  */
 class Contact extends Model

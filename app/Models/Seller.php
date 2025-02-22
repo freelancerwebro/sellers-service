@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $country
  * @property CarbonInterface $created_at
  * @property CarbonInterface $updated_at
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Seller whereId($value)
  */
 class Seller extends Model

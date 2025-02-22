@@ -21,7 +21,7 @@ class SalesCollection extends ResourceCollection
         return [
             'data' => [
                 'stats' => $this->stats,
-                'sales' => $this->collection
+                'sales' => $this->collection,
             ],
         ];
     }

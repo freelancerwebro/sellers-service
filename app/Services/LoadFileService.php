@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Http\Requests\LoadFileRequest;
 use App\Jobs\ProcessCsvChunk;
 use App\Services\Contracts\LoadFileServiceInterface;
-use Illuminate\Http\JsonResponse;
-use App\Http\Requests\LoadFileRequest;
 use Exception;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
 
 class LoadFileService implements LoadFileServiceInterface
@@ -27,7 +27,7 @@ class LoadFileService implements LoadFileServiceInterface
 
         Log::info('CSV file is being processed.....');
 
-        while (($row = fgetcsv($file)) !== FALSE) {
+        while (($row = fgetcsv($file)) !== false) {
             $chunk[] = $row;
 
             if (count($chunk) >= self::BATCH_SIZE) {
@@ -36,7 +36,7 @@ class LoadFileService implements LoadFileServiceInterface
             }
         }
 
-        if (!empty($chunk)) {
+        if (! empty($chunk)) {
             ProcessCsvChunk::dispatch($chunk);
         }
 

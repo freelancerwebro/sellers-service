@@ -21,12 +21,11 @@ class SellerService implements SellerServiceInterface
         private readonly SalesRepositoryInterface $salesRepository,
         private readonly SellerRepositoryInterface $sellerRepository,
         private readonly ContactsRepositoryInterface $contactsRepository
-    ) {
-    }
+    ) {}
 
     public function getSeller(Request $request): JsonResponse
     {
-        $id = (int)$request->route('sellerId');
+        $id = (int) $request->route('sellerId');
         $seller = $this->sellerRepository->getById($id);
 
         return new JsonResponse(
@@ -37,7 +36,7 @@ class SellerService implements SellerServiceInterface
 
     public function getSellerContacts(Request $request): JsonResponse
     {
-        $id = (int)$request->route('sellerId');
+        $id = (int) $request->route('sellerId');
         $contacts = $this->contactsRepository->getBySellerId($id);
 
         return new JsonResponse(
@@ -48,7 +47,7 @@ class SellerService implements SellerServiceInterface
 
     public function getSellerSales(Request $request): JsonResponse
     {
-        $id = (int)$request->route('sellerId');
+        $id = (int) $request->route('sellerId');
         $sales = $this->salesRepository->getSalesBySellerId($id);
 
         return new JsonResponse(
@@ -59,7 +58,7 @@ class SellerService implements SellerServiceInterface
 
     public function getSales(Request $request): JsonResponse
     {
-        $year = (int)$request->route('year');
+        $year = (int) $request->route('year');
         $sales = $this->salesRepository->getSalesByYear($year);
         $stats = $this->salesRepository->getStatsByYear($year);
 

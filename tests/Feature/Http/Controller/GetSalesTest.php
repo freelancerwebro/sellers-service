@@ -7,7 +7,6 @@ namespace Tests\Feature\Http\Controller;
 use App\Models\Contact;
 use App\Models\Sale;
 use App\Models\Seller;
-use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -41,7 +40,7 @@ class GetSalesTest extends TestCase
                     'total_sales' => 3,
                 ],
                 'sales' => [
-                   [
+                    [
                         'id' => $sale1->id,
                         'contact_id' => $contact1->id,
                         'net_amount' => $sale1->net_amount,
@@ -65,9 +64,10 @@ class GetSalesTest extends TestCase
                         'tax_rate' => $sale3->tax_rate,
                         'product_total_cost' => $sale3->product_total_cost,
                     ],
-                ]
+                ],
             ]]);
     }
+
     public function test_get_sales_request_by_year_returns_empty_array_if_no_sales_found()
     {
         $response = $this->getJson(route('getSales', ['year' => 2024]));
