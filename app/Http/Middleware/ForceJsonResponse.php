@@ -20,8 +20,6 @@ class ForceJsonResponse
 
     /**
      * JsonMiddleware constructor.
-     *
-     * @param ResponseFactory $factory
      */
     public function __construct(ResponseFactory $factory)
     {
@@ -33,7 +31,7 @@ class ForceJsonResponse
         $request->headers->set('Accept', 'application/json');
         $response = $next($request);
 
-        if (!$response instanceof JsonResponse) {
+        if (! $response instanceof JsonResponse) {
             $response = $this->factory->json(
                 $response->content(),
                 $response->status(),

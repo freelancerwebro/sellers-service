@@ -26,7 +26,7 @@ class LoadFileTest extends TestCase
         ]);
 
         $response->assertStatus(200)
-        ->assertJson(['message' => 'The CSV file is valid. It\'s being processed in the background.']);
+            ->assertJson(['message' => 'The CSV file is valid. It\'s being processed in the background.']);
 
         Queue::assertPushed(ProcessCsvChunk::class);
     }

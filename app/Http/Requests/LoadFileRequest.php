@@ -49,32 +49,34 @@ class LoadFileRequest extends FormRequest
         $validator->after(function ($validator) {
             $file = $this->file('file');
 
-            if (!$file) {
+            if (! $file) {
                 $validator->errors()->add('file', 'No file uploaded.');
+
                 return;
             }
 
-            $handle = fopen($file->getPathname(), "r");
+            $handle = fopen($file->getPathname(), 'r');
             $headers = fgetcsv($handle);
 
-            if (!is_array($headers)) {
+            if (! is_array($headers)) {
                 $validator->errors()->add('file', 'The uploaded file is empty.');
+
                 return;
             }
 
             if (count($headers) !== count(self::EXPECTED_COLUMNS)) {
                 $validator->errors()->add(
                     'file',
-                    "Invalid number of columns. Expected: " . implode(', ', self::EXPECTED_COLUMNS) .
-                    " but found " . count($headers) . " columns."
+                    'Invalid number of columns. Expected: '.implode(', ', self::EXPECTED_COLUMNS).
+                    ' but found '.count($headers).' columns.'
                 );
             }
 
             if ($headers !== self::EXPECTED_COLUMNS) {
                 $validator->errors()->add(
                     'file',
-                    "Invalid column names. Expected: " . implode(', ', self::EXPECTED_COLUMNS) .
-                    " but found: " . implode(', ', $headers)
+                    'Invalid column names. Expected: '.implode(', ', self::EXPECTED_COLUMNS).
+                    ' but found: '.implode(', ', $headers)
                 );
             }
 

@@ -12,7 +12,8 @@ use Tests\TestCase;
 class ProcessCsvChunkTest extends TestCase
 {
     use RefreshDatabase;
-    public function testJobIsDispatchedToQueue(): void
+
+    public function test_job_is_dispatched_to_queue(): void
     {
         Queue::fake();
 
@@ -23,7 +24,7 @@ class ProcessCsvChunkTest extends TestCase
         Queue::assertPushed(ProcessCsvChunk::class);
     }
 
-    public function testJobSavesDataToDatabase()
+    public function test_job_saves_data_to_database()
     {
         $this->artisan('queue:work --stop-when-empty');
 
@@ -43,7 +44,7 @@ class ProcessCsvChunkTest extends TestCase
             120,
             444,
             0.19,
-            350
+            350,
         ]];
 
         ProcessCsvChunk::dispatch($csvData);
@@ -53,7 +54,7 @@ class ProcessCsvChunkTest extends TestCase
             'firstname' => 'John',
             'lastname' => 'Doe',
             'date_joined' => '2025-01-02',
-            'country' => 'UK'
+            'country' => 'UK',
         ]);
 
         $this->assertDatabaseHas('contacts', [
@@ -74,7 +75,7 @@ class ProcessCsvChunkTest extends TestCase
         ]);
     }
 
-    public function testJobWithEmptyCsvFile(): void
+    public function test_job_with_empty_csv_file(): void
     {
         $this->artisan('queue:work --stop-when-empty');
 

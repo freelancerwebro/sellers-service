@@ -32,7 +32,13 @@ jobs:
       run: |
         mkdir -p database
         touch database/database.sqlite
-    - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
+    - name: Run Laravel Pint (Code Style)
+      run: vendor/bin/pint --test
+    - name: Run PHPStan (Static Analysis)
+      run: vendor/bin/phpstan analyse --memory-limit=512M
+    - name: Run Laravel Security Checker
+      run: vendor/bin/security-checker security:check
+    - name: Run PHPUnit Tests
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite

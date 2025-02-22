@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Services\Contracts;
 
-use Illuminate\Http\JsonResponse;
 use App\Http\Requests\LoadFileRequest;
+use Illuminate\Http\JsonResponse;
 
 interface LoadFileServiceInterface
 {

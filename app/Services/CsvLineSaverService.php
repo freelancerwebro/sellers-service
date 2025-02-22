@@ -13,17 +13,17 @@ use Illuminate\Support\Facades\DB;
 class CsvLineSaverService implements CsvLineSaverServiceInterface
 {
     public function __construct(
-        private readonly SalesRepositoryInterface  $salesRepository,
+        private readonly SalesRepositoryInterface $salesRepository,
         private readonly SellerRepositoryInterface $sellerRepository,
         private readonly ContactsRepositoryInterface $contactsRepository
-    ) {
-    }
+    ) {}
+
     public function save(array $csvRow): void
     {
         DB::transaction(function () use ($csvRow) {
             $seller = $this->sellerRepository->createFromCSVLine($csvRow);
 
-            $contact = $this->contactsRepository->createFromCSVLine($csvRow, (int)$seller->id);
+            $contact = $this->contactsRepository->createFromCSVLine($csvRow, (int) $seller->id);
 
             $this->salesRepository->createFromCSVLine($csvRow, $contact->id);
         });

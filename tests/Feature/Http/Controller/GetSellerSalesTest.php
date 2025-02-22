@@ -32,7 +32,7 @@ class GetSellerSalesTest extends TestCase
                     'net_amount' => '1000.00',
                     'tax_rate' => '0.19',
                     'gross_amount' => '1200.00',
-                    'product_total_cost' => '50.00'
+                    'product_total_cost' => '50.00',
                 ],
                 [
                     'id' => $sale2->id,
@@ -40,7 +40,7 @@ class GetSellerSalesTest extends TestCase
                     'net_amount' => '500.00',
                     'tax_rate' => '0.19',
                     'gross_amount' => '700.00',
-                    'product_total_cost' => '80.00'
+                    'product_total_cost' => '80.00',
                 ],
                 [
                     'id' => $sale3->id,
@@ -48,8 +48,8 @@ class GetSellerSalesTest extends TestCase
                     'net_amount' => '800.00',
                     'tax_rate' => '0.19',
                     'gross_amount' => '1000.00',
-                    'product_total_cost' => '120.00'
-                ]
+                    'product_total_cost' => '120.00',
+                ],
             ]]);
     }
 

@@ -10,5 +10,6 @@ use Illuminate\Database\Eloquent\Collection;
 interface ContactsRepositoryInterface
 {
     public function getBySellerId(int $id): Collection;
+
     public function createFromCSVLine(array $csvLine, int $sellerId): Contact;
 }

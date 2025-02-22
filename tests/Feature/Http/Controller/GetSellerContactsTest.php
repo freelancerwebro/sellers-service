@@ -29,7 +29,7 @@ class GetSellerContactsTest extends TestCase
                     'full_name' => 'John Doe',
                     'type' => 'Phone',
                     'product_type_offered_id' => 23,
-                    'product_type_offered' => 'Product 1'
+                    'product_type_offered' => 'Product 1',
                 ],
                 [
                     'id' => $contact2->id,
@@ -37,8 +37,8 @@ class GetSellerContactsTest extends TestCase
                     'full_name' => 'Allen Joe',
                     'type' => 'Email',
                     'product_type_offered_id' => 44,
-                    'product_type_offered' => 'Product 2'
-                ]
+                    'product_type_offered' => 'Product 2',
+                ],
             ]]);
     }
 
