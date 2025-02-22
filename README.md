@@ -38,7 +38,11 @@ php artisan queue:work --tries=3
 
 ## Run tests
 ```
-php artisan test
+composer test
+```
+## Run coding style tools
+```
+composer cs
 ```
 
 ## Preview
