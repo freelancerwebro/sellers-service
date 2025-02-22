@@ -14,7 +14,7 @@ RESTful API designed to handle custom sales data from a high-value customer oper
 - Docker
 - PHPUnit
 
-## **Requirements**
+## Requirements
 - [docker-compose](https://docs.docker.com/compose/install/)
 - [PHP](https://www.php.net/manual/en/install.php)
 
@@ -39,6 +39,7 @@ Run the following command from the terminal:
 
 ## Start Processing Background Jobs
 Background jobs efficiently process CSV data in chunks. Each chunk consists of 1,000 rows, allowing for asynchronous processing. For example, a CSV file with 6,500 rows will be split into 7 chunks, with each chunk handled by a separate background job to optimize performance and scalability.
+
 ```
 php artisan queue:work --tries=3
 ```
