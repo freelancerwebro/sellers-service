@@ -37,3 +37,5 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: php artisan test
+    - name: Run PHPStan Static Analysis
+      run: vendor/bin/phpstan analyse --memory-limit=512M
