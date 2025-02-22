@@ -2,9 +2,13 @@ name: Laravel
 
 on:
   push:
-    branches: [ "main", "feature/*", "bugfix/*" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+    types:
+      - opened
+      - reopened
+      - synchronize
 
 jobs:
   laravel-tests:
