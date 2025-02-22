@@ -14,7 +14,7 @@ RESTful API designed to handle custom sales data from a high-value customer oper
 - Docker
 - PHPUnit
 
-## **Requirements**
+## RequirementsQQQQQ
 - [docker-compose](https://docs.docker.com/compose/install/)
 - [PHP](https://www.php.net/manual/en/install.php)
 
@@ -24,24 +24,23 @@ Run the following command from the terminal:
 ./deploy.sh
 ```
 
-## API Endpoints
+## Usage
 - POST `/load`: Upload a CSV file
 - GET `/sellers/{id}`: Provide complete seller data via id
 - GET `/sellers/{id}/contacts`: Provide a list of all contacts established by the seller.
 - GET `/sellers/{id}/sales`: Provide a list of all sales data accomplished by the seller.
 - GET `/sales/{year}`: Provide an object with two properties: stats (netAmount, grossAmount, taxAmount, profit, % profit) and sales (list of the all sales matching the period).
 
-## Start Processing Background Jobs
-Background jobs efficiently process CSV data in chunks. Each chunk consists of 1,000 rows, allowing for asynchronous processing. For example, a CSV file with 6,500 rows will be split into 7 chunks, with each chunk handled by a separate background job to optimize performance and scalability.
+## Execute background jobs
 ```
 php artisan queue:work --tries=3
 ```
 
-## Running tests
+## Run tests
 ```
 composer test
 ```
-## Running code quality tools
+## Run coding style tools
 ```
 composer cs
 ```
@@ -65,8 +64,7 @@ Sample csv files: [2_records.csv](https://raw.githubusercontent.com/freelancerwe
 #### Get year stats
 ![app preview](https://raw.githubusercontent.com/freelancerwebro/sellers-service/main/resources/images/stats.png)
 
-## API Documentation
-To explore the API documentation, visit the following URL:
+## Documentation
 ```
 http://localhost:8083
 ```
