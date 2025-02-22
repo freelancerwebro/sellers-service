@@ -14,7 +14,7 @@ RESTful API designed to handle custom sales data from a high-value customer oper
 - Docker
 - PHPUnit
 
-## Requirements
+## RequirementsQQQQQ
 - [docker-compose](https://docs.docker.com/compose/install/)
 - [PHP](https://www.php.net/manual/en/install.php)
 
