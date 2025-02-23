@@ -13,6 +13,7 @@
         "predis/predis": "^2.3"
     },
     "require-dev": {
+        "captainhook/captainhook": "^5.25",
         "enlightn/security-checker": "^2.0",
         "fakerphp/faker": "^1.9.1",
         "larastan/larastan": "^2.9",
