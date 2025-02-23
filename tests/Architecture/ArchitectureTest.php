@@ -6,7 +6,7 @@ test('debugs not to be used in the codebase')
     ->expect(['dd', 'dump', 'var_dump'])
     ->not->toBeUsed();
 
-test('application uses strict typing')
+test('application PHP files use strict types')
     ->expect('App')
     ->toUseStrictTypes();
 
