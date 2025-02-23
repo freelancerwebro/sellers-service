@@ -19,3 +19,4 @@ yarn-error.log
 /boostrap/cache
 /storage/*
 /undeploy.sh
+/.phpunit.cache/*
