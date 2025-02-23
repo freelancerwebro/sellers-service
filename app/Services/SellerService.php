@@ -15,12 +15,12 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class SellerService implements SellerServiceInterface
+readonly class SellerService implements SellerServiceInterface
 {
     public function __construct(
-        private readonly SalesRepositoryInterface $salesRepository,
-        private readonly SellerRepositoryInterface $sellerRepository,
-        private readonly ContactsRepositoryInterface $contactsRepository
+        private SalesRepositoryInterface $salesRepository,
+        private SellerRepositoryInterface $sellerRepository,
+        private ContactsRepositoryInterface $contactsRepository
     ) {}
 
     public function getSeller(Request $request): JsonResponse
