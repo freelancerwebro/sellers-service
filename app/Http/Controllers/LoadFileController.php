@@ -8,7 +8,7 @@ use App\Http\Requests\LoadFileRequest;
 use App\Services\Contracts\LoadFileServiceInterface;
 use Illuminate\Http\JsonResponse;
 
-class LoadFile extends Controller
+class LoadFileController extends Controller
 {
     public function __invoke(
         LoadFileRequest $request,
