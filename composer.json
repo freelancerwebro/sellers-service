@@ -40,7 +40,7 @@
         "pint": "vendor/bin/pint --test",
         "security": "vendor/bin/security-checker security:check",
         "cs": ["@security", "@phpstan", "@pint"],
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/pest"
     },
     "extra": {
         "laravel": {

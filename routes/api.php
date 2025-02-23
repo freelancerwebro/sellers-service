@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use App\Http\Controllers\GetSales;
-use App\Http\Controllers\GetSeller;
-use App\Http\Controllers\GetSellerContacts;
-use App\Http\Controllers\GetSellerSales;
-use App\Http\Controllers\LoadFile;
+use App\Http\Controllers\GetSalesController;
+use App\Http\Controllers\GetSellerContactsController;
+use App\Http\Controllers\GetSellerController;
+use App\Http\Controllers\GetSellerSalesController;
+use App\Http\Controllers\LoadFileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,9 +20,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/load', LoadFile::class)->name('loadFile');
+Route::post('/load', LoadFileController::class)->name('loadFile');
 
-Route::get('/sellers/{sellerId}', GetSeller::class)->name('getSeller');
-Route::get('/sellers/{sellerId}/contacts', GetSellerContacts::class)->name('getSellerContacts');
-Route::get('/sellers/{sellerId}/sales', GetSellerSales::class)->name('getSellerSales');
-Route::get('/sales/{year}', GetSales::class)->name('getSales');
+Route::get('/sellers/{sellerId}', GetSellerController::class)->name('getSeller');
+Route::get('/sellers/{sellerId}/contacts', GetSellerContactsController::class)->name('getSellerContacts');
+Route::get('/sellers/{sellerId}/sales', GetSellerSalesController::class)->name('getSellerSales');
+Route::get('/sales/{year}', GetSalesController::class)->name('getSales');
