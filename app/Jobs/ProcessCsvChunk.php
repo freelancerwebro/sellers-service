@@ -29,4 +29,9 @@ class ProcessCsvChunk implements ShouldQueue
             $csvLineSaverService->save($row);
         }
     }
+
+    public function getChunk(): array
+    {
+        return $this->chunk;
+    }
 }

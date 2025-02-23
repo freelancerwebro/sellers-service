@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Feature\Job;
+namespace Tests\Feature\Jobs;
 
 use App\Jobs\ProcessCsvChunk;
 use Illuminate\Foundation\Testing\RefreshDatabase;

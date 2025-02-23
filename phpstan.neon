@@ -12,3 +12,4 @@ parameters:
             - database/*
             - public/*
             - tests/Architecture/*
+            - tests/Unit/*
