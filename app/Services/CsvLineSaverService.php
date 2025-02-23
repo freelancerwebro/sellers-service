@@ -10,12 +10,12 @@ use App\Repositories\Contracts\SellerRepositoryInterface;
 use App\Services\Contracts\CsvLineSaverServiceInterface;
 use Illuminate\Support\Facades\DB;
 
-class CsvLineSaverService implements CsvLineSaverServiceInterface
+readonly class CsvLineSaverService implements CsvLineSaverServiceInterface
 {
     public function __construct(
-        private readonly SalesRepositoryInterface $salesRepository,
-        private readonly SellerRepositoryInterface $sellerRepository,
-        private readonly ContactsRepositoryInterface $contactsRepository
+        private SalesRepositoryInterface $salesRepository,
+        private SellerRepositoryInterface $sellerRepository,
+        private ContactsRepositoryInterface $contactsRepository
     ) {}
 
     public function save(array $csvRow): void
