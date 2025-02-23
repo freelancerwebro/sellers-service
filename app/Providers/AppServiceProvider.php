@@ -14,6 +14,7 @@ use App\Services\CsvLineSaverService;
 use App\Services\LoadFileService;
 use App\Services\SellerService;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Database\DatabaseManager;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -53,6 +54,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->bind(CsvLineSaverServiceInterface::class, static function (Application $app) {
             return new CsvLineSaverService(
+                $app->get(DatabaseManager::class),
                 $app->get(SalesRepository::class),
                 $app->get(SellerRepository::class),
                 $app->get(ContactsRepository::class)
