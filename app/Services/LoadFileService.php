@@ -9,7 +9,6 @@ use App\Jobs\ProcessCsvChunk;
 use App\Services\Contracts\LoadFileServiceInterface;
 use Exception;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Log;
 
 class LoadFileService implements LoadFileServiceInterface
 {
@@ -24,8 +23,6 @@ class LoadFileService implements LoadFileServiceInterface
         $file = fopen($filePath, 'r');
         $header = fgetcsv($file);
         $chunk = [];
-
-        Log::info('CSV file is being processed.....');
 
         while (($row = fgetcsv($file)) !== false) {
             $chunk[] = $row;
