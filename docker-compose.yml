@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-    # Laravel with PHP 8.1
+    # Laravel with PHP 8.4
     app:
         build:
             context: .
@@ -70,6 +70,18 @@ services:
         networks:
             - laravel
 
+    swagger-ui:
+        image: swaggerapi/swagger-ui
+        container_name: sellers_service_swagger_ui
+        restart: unless-stopped
+        ports:
+            - "8083:8080"  # Exposes Swagger UI on localhost:8081
+        depends_on:
+            - nginx
+        environment:
+            SWAGGER_JSON_URL: "${SWAGGER_JSON_URL}"
+        networks:
+            - laravel
 networks:
     laravel:
         driver: bridge

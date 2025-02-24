@@ -8,6 +8,7 @@ use Closure;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class ForceJsonResponse
 {
@@ -30,6 +31,10 @@ class ForceJsonResponse
     {
         $request->headers->set('Accept', 'application/json');
         $response = $next($request);
+
+        if ($response instanceof BinaryFileResponse) {
+            return $response; // Skip JSON modification
+        }
 
         if (! $response instanceof JsonResponse) {
             $response = $this->factory->json(
