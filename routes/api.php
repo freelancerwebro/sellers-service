@@ -26,3 +26,7 @@ Route::get('/sellers/{sellerId}', GetSellerController::class)->name('getSeller')
 Route::get('/sellers/{sellerId}/contacts', GetSellerContactsController::class)->name('getSellerContacts');
 Route::get('/sellers/{sellerId}/sales', GetSellerSalesController::class)->name('getSellerSales');
 Route::get('/sales/{year}', GetSalesController::class)->name('getSales');
+
+Route::get('/api/docs.json', function () {
+    return response()->file(storage_path('api-docs/api-docs.json'));
+});

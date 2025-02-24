@@ -63,3 +63,10 @@ Sample csv files: [2_records.csv](https://raw.githubusercontent.com/freelancerwe
 
 #### Get year stats
 ![app preview](https://raw.githubusercontent.com/freelancerwebro/sellers-service/main/resources/images/stats.png)
+
+## Documentation
+```
+http://localhost:8083
+```
+![app preview](https://raw.githubusercontent.com/freelancerwebro/sellers-service/main/resources/images/swagger.png)
+
