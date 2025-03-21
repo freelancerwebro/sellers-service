@@ -37,16 +37,18 @@ Run the following command to build the service:
 - GET `/sellers/{id}/sales`: Provide a list of all sales data accomplished by the seller.
 - GET `/sales/{year}`: Provide an object with two properties: stats (netAmount, grossAmount, taxAmount, profit, % profit) and sales (list of the all sales matching the period).
 
-## Execute background jobs
+## Start Processing Background Jobs
+Background jobs efficiently process CSV data in chunks. Each chunk consists of 1,000 rows, allowing for asynchronous processing. For example, a CSV file with 6,500 rows will be split into 7 chunks, with each chunk handled by a separate background job to optimize performance and scalability.
+
 ```
 php artisan queue:work --tries=3
 ```
 
-## Run tests
+## Running tests
 ```
 composer test
 ```
-## Run coding style tools
+## Running code quality tools
 ```
 composer cs
 ```
@@ -70,7 +72,7 @@ Sample csv files: [2_records.csv](https://raw.githubusercontent.com/freelancerwe
 #### Get year stats
 ![app preview](https://raw.githubusercontent.com/freelancerwebro/sellers-service/main/resources/images/stats.png)
 
-## Documentation
+## API Documentation
 ```
 http://localhost:8083
 ```
