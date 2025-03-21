@@ -14,17 +14,23 @@ RESTful API designed to handle custom sales data from a high-value customer oper
 - Docker
 - PHPUnit
 
-## **Requirements**
+## Requirements
 - [docker-compose](https://docs.docker.com/compose/install/)
 - [PHP](https://www.php.net/manual/en/install.php)
 
 ## Installation
-Run the following command from the terminal:
+Clone the git repository:
+```
+git clone git@github.com:freelancerwebro/sellers-service.git
+cd sellers-service
+```
+
+Run the following command to build the service:
 ```
 ./deploy.sh
 ```
 
-## API Endpoints
+## Usage
 - POST `/load`: Upload a CSV file
 - GET `/sellers/{id}`: Provide complete seller data via id
 - GET `/sellers/{id}/contacts`: Provide a list of all contacts established by the seller.
@@ -33,6 +39,7 @@ Run the following command from the terminal:
 
 ## Start Processing Background Jobs
 Background jobs efficiently process CSV data in chunks. Each chunk consists of 1,000 rows, allowing for asynchronous processing. For example, a CSV file with 6,500 rows will be split into 7 chunks, with each chunk handled by a separate background job to optimize performance and scalability.
+
 ```
 php artisan queue:work --tries=3
 ```
@@ -66,7 +73,6 @@ Sample csv files: [2_records.csv](https://raw.githubusercontent.com/freelancerwe
 ![app preview](https://raw.githubusercontent.com/freelancerwebro/sellers-service/main/resources/images/stats.png)
 
 ## API Documentation
-To explore the API documentation, visit the following URL:
 ```
 http://localhost:8083
 ```
