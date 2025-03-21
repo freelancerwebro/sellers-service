@@ -19,7 +19,13 @@ RESTful API designed to handle custom sales data from a high-value customer oper
 - [PHP](https://www.php.net/manual/en/install.php)
 
 ## Installation
-Run the following command from the terminal:
+Clone the git repository:
+```
+git clone git@github.com:freelancerwebro/sellers-service.git
+cd sellers-service
+```
+
+Run the following command to build the service:
 ```
 ./deploy.sh
 ```
