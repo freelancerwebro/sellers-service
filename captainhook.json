@@ -14,7 +14,7 @@
                 "action": "composer cs"
             },
             {
-                "action": "vendor/bin/pest"
+                "action": "composer test"
             }
         ]
     },
