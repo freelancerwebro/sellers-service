@@ -7,7 +7,7 @@ RESTful API designed to handle custom sales data from a high-value customer oper
 - REST API for easy data retrieval
 
 ## Tech Stack
-- Laravel 11
+- Laravel 12
 - PHP 8.4
 - MySQL 8
 - Redis
