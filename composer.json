@@ -8,7 +8,7 @@
         "php": "^8.3",
         "darkaonline/l5-swagger": "^8.6",
         "guzzlehttp/guzzle": "^7.2",
-        "laravel/framework": "^11.0",
+        "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.7",
         "predis/predis": "^2.3"
@@ -17,12 +17,12 @@
         "captainhook/captainhook": "^5.25",
         "enlightn/security-checker": "^2.0",
         "fakerphp/faker": "^1.9.1",
-        "larastan/larastan": "^2.9",
+        "larastan/larastan": "^3.4",
         "laravel/pint": "^1.20",
         "mockery/mockery": "^1.6",
-        "pestphp/pest": "^3.7",
+        "pestphp/pest": "^3.8",
         "pestphp/pest-plugin-laravel": "^3.1",
-        "phpstan/phpstan": "^1.9",
+        "phpstan/phpstan": "^2.1",
         "phpunit/phpunit": "^11.5"
     },
     "autoload": {
